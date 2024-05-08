@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+html {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.seats-small {
+  @media (max-width: 639px) {
+    background-image: url(../assets/bright-man-small.png);
+  }
+}
+
+.seats-big {
+  @media (min-width: 640px) {
+    background-image: url(../assets/bright-man-big.png);
+  }
+}
+
+.footer-big {
+  background-image: url(../assets/footer-gradient.png);
+  background-position: center;
+}
+
+.handshake-small {
+  @media (max-width: 639px) {
+    background-image: url(../assets/handshake-small.gif);
+  }
+}
+
+.handshake-big {
+  @media (min-width: 640px) {
+    background-image: url(../assets/handshake-big.gif);
+  }
+}
+
+.navigation {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0);
+  clip-path: circle(50px at calc(100% - 40px) 44px);
+  z-index: 5;
+  transition: all 400ms ease-in-out;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.navigation.active {
+  position: fixed;
+  clip-path: circle(100%);
+  background: white;
+  z-index: 10;
+}
+
+.navigation .ham-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+
+  @media (min-width: 639px) {
+    top: 26px;
+    right: 28px;
+  }
+}
+
+.navigation .ham-btn span {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 2px;
+  transition: all 400ms ease-in-out;
+}
+
+.navigation .ham-btn span:nth-child(1) {
+  top: 35%;
+}
+.navigation .ham-btn span:nth-child(2) {
+  top: 50%;
+}
+.navigation .ham-btn span:nth-child(3) {
+  top: 65%;
+}
+.navigation.active .ham-btn span:nth-child(1) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: #050503;
+}
+.navigation.active .ham-btn span:nth-child(2) {
+  display: none;
+  background-color: #050503;
+}
+.navigation.active .ham-btn span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-color: #050503;
+}
+
+.navigation .links a {
+  display: none;
+}
+.navigation.active .links {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation.active .links a {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.backdrop-fil {
+  backdrop-filter: blur(8px);
+}
+
+@tailwind utilities;
